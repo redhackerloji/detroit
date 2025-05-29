@@ -21,6 +21,30 @@ const videos: Video[] = [
     thumbnailUrl: getAssetPath('images/videos/trailer1-thumb.webp'),
     videoUrl: getAssetPath('videos/Trailer1.mp4'),
     category: 'trailer'
+  },
+  {
+    id: 'trailer2',
+    title: 'Detroit: Become Human - Gameplay Trailer',
+    description: 'Experience the intense gameplay and emotional storytelling of Detroit: Become Human.',
+    thumbnailUrl: getAssetPath('images/videos/trailer1-thumb.webp'),
+    videoUrl: getAssetPath('videos/Trailer 2.mp4'),
+    category: 'trailer'
+  },
+  {
+    id: 'trailer3',
+    title: 'Detroit: Become Human - Character Stories',
+    description: 'Discover the intertwining stories of Connor, Kara, and Markus in this cinematic adventure.',
+    thumbnailUrl: getAssetPath('images/videos/trailer1-thumb.webp'),
+    videoUrl: getAssetPath('videos/Trailer3.mp4'),
+    category: 'trailer'
+  },
+  {
+    id: 'trailer4',
+    title: 'Detroit: Become Human - World Premiere',
+    description: 'The first look at the groundbreaking narrative adventure from Quantic Dream.',
+    thumbnailUrl: getAssetPath('images/videos/trailer1-thumb.webp'),
+    videoUrl: getAssetPath('videos/Trailer4.mp4'),
+    category: 'trailer'
   }
 ];
 
