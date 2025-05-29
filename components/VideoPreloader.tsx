@@ -3,10 +3,11 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AlertTriangle, Volume2, VolumeX } from 'lucide-react'
+import { getAssetPath } from '../utils/paths'
 
 const trailers = [
-  { src: '/public/videos/Trailer3.mp4', type: 'video/mp4' },
-  { src: '/public/videos/Trailer1.mp4', type: 'video/mp4' },
+  { src: getAssetPath('videos/Trailer3.mp4'), type: 'video/mp4' },
+  { src: getAssetPath('videos/Trailer1.mp4'), type: 'video/mp4' },
 ]
 
 export default function VideoPreloader({ onComplete }: { onComplete: () => void }) {
