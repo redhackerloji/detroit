@@ -9,6 +9,9 @@ export const getAssetPath = (path: string): string => {
   // For GitHub Pages, we need the repo name in the path
   const basePath = isGitHubPages ? '/detroit/' : '/';
   
+  // Don't include 'public' in the path as Next.js serves from the public directory directly
+  const finalPath = cleanPath.replace(/^public\//, '');
+  
   // Combine and ensure no double slashes
-  return `${basePath}${cleanPath}`;
+  return `${basePath}${finalPath}`;
 }; 
