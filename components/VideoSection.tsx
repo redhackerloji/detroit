@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image'
+import { getAssetPath } from '../utils/paths';
 
 interface Video {
   id: string;
@@ -17,8 +18,8 @@ const videos: Video[] = [
     id: 'trailer1',
     title: 'Detroit: Become Human - Launch Trailer',
     description: 'Enter the world of Detroit: Become Human, where your choices determine the fate of androids and humanity.',
-    thumbnailUrl: '/images/videos/trailer1-thumb.webp',
-    videoUrl: '/videos/Trailer1.mp4',
+    thumbnailUrl: getAssetPath('/images/videos/trailer1-thumb.webp'),
+    videoUrl: getAssetPath('/videos/Trailer1.mp4'),
     category: 'trailer'
   }
 ];
