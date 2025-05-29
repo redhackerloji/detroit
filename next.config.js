@@ -14,8 +14,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true, // Temporarily ignore TypeScript errors during build
   },
-  // Ensure static files are copied correctly
-  distDir: 'dist',
   trailingSlash: true,
 }
 
