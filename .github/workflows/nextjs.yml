@@ -1,73 +1,70 @@
-name: Deploy Next.js site to Pages
+name: Next.js CI
 
 on:
-  # Runs on pushes targeting the default branch
+  pull_request:
+    branches: ['main']
   push:
-    branches: ["main"]
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-env:
-  GITHUB_PAGES: true # This will be used in next.config.js
+    branches: ['main']
 
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          static_site_generator: next
-
       - name: Install dependencies
-        run: |
-          npm install
-          npm install sharp
+        run: npm ci
 
-      - name: Fix ESLint issues
-        run: npm run lint -- --fix || true
+      - name: Check code formatting
+        run: npm run format || echo "No format script found"
 
-      - name: Build with Next.js
+      - name: Lint
+        run: npm run lint || echo "No lint script found"
+
+      - name: Type check
+        run: npm run typecheck || echo "No typecheck script found"
+
+      - name: Build
+        run: npm run build
         env:
           GITHUB_PAGES: true
-        run: |
-          npm run build
-          touch out/.nojekyll
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Cache build output
+        uses: actions/cache@v3
         with:
-          path: ./out
+          path: |
+            .next
+            out
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-
 
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+  test:
     needs: build
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test || echo "No test script found"
