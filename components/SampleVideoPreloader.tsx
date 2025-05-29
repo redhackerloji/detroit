@@ -6,8 +6,8 @@ import { AlertTriangle, Volume2, VolumeX, Minimize, Maximize, X } from 'lucide-r
 import { getAssetPath } from '../utils/paths'
 
 const trailers = [
-  { src: getAssetPath('/videos/Trailer 2.mp4'), type: 'video/mp4' },
-  { src: getAssetPath('/videos/Trailer4.mp4'), type: 'video/mp4' },
+  { src: getAssetPath('/public/videos/Trailer 2.mp4'), type: 'video/mp4' },
+  { src: getAssetPath('/public/videos/Trailer4.mp4'), type: 'video/mp4' },
 ]
 
 export default function SampleVideoPreloader({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {

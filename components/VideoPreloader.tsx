@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { AlertTriangle, Volume2, VolumeX } from 'lucide-react'
 
 const trailers = [
-  { src: '/videos/Trailer3.mp4', type: 'video/mp4' },
-  { src: '/videos/Trailer1.mp4', type: 'video/mp4' },
+  { src: '/public/videos/Trailer3.mp4', type: 'video/mp4' },
+  { src: '/public/videos/Trailer1.mp4', type: 'video/mp4' },
 ]
 
 export default function VideoPreloader({ onComplete }: { onComplete: () => void }) {
