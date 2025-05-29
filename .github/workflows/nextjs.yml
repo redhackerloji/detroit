@@ -18,6 +18,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  GITHUB_PAGES: true # This will be used in next.config.js
+
 jobs:
   # Build job
   build:
@@ -38,10 +41,19 @@ jobs:
           static_site_generator: next
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm install
+          npm install sharp
+
+      - name: Fix ESLint issues
+        run: npm run lint -- --fix || true
 
       - name: Build with Next.js
-        run: npm run build
+        env:
+          GITHUB_PAGES: true
+        run: |
+          npm run build
+          touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
