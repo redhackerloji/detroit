@@ -1,13 +1,12 @@
 {
-  "extends": "next/core-web-vitals",
-  "parser": "@babel/eslint-parser",
-  "parserOptions": {
-    "requireConfigFile": false,
-    "babelOptions": {
-      "presets": ["next/babel"]
-    }
-  },
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
-    "@next/next/no-html-link-for-pages": "off"
+    "react/no-unescaped-entities": "warn",
+    "@next/next/no-img-element": "warn",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-no-comment-textnodes": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/no-unknown-property": "warn"
   }
 }

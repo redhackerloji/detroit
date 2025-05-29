@@ -26,7 +26,7 @@ export default function AboutSection() {
     {
       id: 'about-presentation',
       question: 'What is this presentation?',
-      answer: 'This interactive web presentation was created by Lojitha, Ravindi, Sathmi, Humaidha, ad Rivinu to explore the narrative, characters, gameplay mechanics, and philosophical themes of Detroit: Become Human. It demonstrates interactive web development techniques while providing insights into the game\'s exploration of consciousness, identity, and civil rights.'
+      answer: 'This interactive web presentation was created by Lojitha, Ravindi, Sathmi, Humaidha, ad Rivinu to explore the narrative, characters, gameplay mechanics, and philosophical themes of Detroit: Become Human. It demonstrates interactive web development techniques while providing insights into the game&apos;s exploration of consciousness, identity, and civil rights.'
     },
     {
       id: 'technologies',

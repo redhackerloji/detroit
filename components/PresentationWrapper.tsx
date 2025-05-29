@@ -53,7 +53,7 @@ export default function PresentationWrapper({ children }: PresentationWrapperPro
               transition={{ delay: 1 }}
             >
               <div className="android-terminal text-xs text-detroit-blue/60 mb-2">
-                // PRESENTATION MODE
+                {/* Comment text */}
               </div>
               <div className="flex items-center gap-2">
                 <kbd className="px-2 py-1 bg-detroit-blue/10 text-detroit-blue rounded">F</kbd>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { toast } from "sonner"
 import SlideLayout from './SlideLayout'
 import { usePresentation } from '../contexts/PresentationContext'
+import Image from 'next/image'
 
 type Theme = {
   id: string
@@ -234,7 +235,13 @@ export default function ThemesSection() {
                   animate={{ x: 0 }}
                 >
                   <div className={`w-12 h-12 rounded-full bg-${activeTheme.color}/20 flex items-center justify-center`}>
-                    <img src={activeTheme.iconPath} alt="" className="w-6 h-6" />
+                    <Image 
+                      src={activeTheme.iconPath}
+                      alt=""
+                      width={500}
+                      height={300}
+                      priority
+                    />
                   </div>
                   <h3 className={`font-rajdhani text-2xl font-bold text-${activeTheme.color}`}>
                     {activeTheme.title}

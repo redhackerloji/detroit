@@ -128,7 +128,7 @@ export default function NavSidebar() {
           transition={{ delay: 0.8 }}
         >
           <div className="android-terminal text-xs mb-2 text-detroit-blue/60">
-            // PRESENTATION CONTROLS
+            {/* PRESENTATION CONTROLS */}
           </div>
           
           <div className="flex items-center justify-between">
@@ -340,7 +340,7 @@ function SidebarContent({ mobile, setIsOpen, activeSection, onShowSample }: Side
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
         >
-          <div className="android-terminal text-xs mb-2 text-detroit-blue/60">// SYSTEM STATUS</div>
+          <div className="android-terminal text-xs mb-2 text-detroit-blue/60">{/* SYSTEM STATUS */}</div>
           <div className="flex items-center space-x-2">
             <motion.div 
               className="w-2 h-2 rounded-full bg-detroit-blue"

@@ -102,7 +102,7 @@ export default function GameplaySection() {
                       >
                         <div className="h-full w-full flex items-center justify-center backdrop-blur-sm">
                           <p className="android-terminal text-sm opacity-60 group-hover:opacity-100 transition-opacity">
-                            // Analyzing crime scene data...
+                            {/* Analyzing crime scene data... */}
                           </p>
                         </div>
                       </motion.div>
@@ -231,7 +231,7 @@ export default function GameplaySection() {
   // Set total slides when component mounts
   useEffect(() => {
     setTotalSlides(slides.length)
-  }, [setTotalSlides])
+  }, [setTotalSlides, slides.length])
 
   const currentSlideData = slides[currentSlide - 1]
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image'
 
 interface Video {
   id: string;
@@ -309,10 +310,12 @@ export default function VideoSection() {
               onClick={() => setActiveVideo(video)}
             >
               <div className="relative h-48">
-                <img
+                <Image 
                   src={video.thumbnailUrl}
                   alt={video.title}
-                  className="w-full h-full object-cover"
+                  width={500}
+                  height={300}
+                  priority
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
                   <svg

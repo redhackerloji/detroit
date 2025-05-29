@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 interface Character {
   id: string
@@ -116,9 +117,12 @@ export default function CharacterSelector() {
               <div className="relative aspect-[3/4] overflow-hidden interface-border bg-detroit-black/40">
                 {/* Image */}
                 <div className="absolute inset-0">
-                  <img
+                  <Image
                     src={character.image}
                     alt={character.name}
+                    width={500}
+                    height={300}
+                    priority
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-detroit-black via-detroit-black/40 to-transparent"></div>
