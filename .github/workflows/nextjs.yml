@@ -11,6 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,13 +47,14 @@ jobs:
       - name: Copy public directory
         run: |
           mkdir -p out
-          cp -r public/* out/
+          cp -r public/* out/ || true
           touch out/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: out
+          name: github-pages
 
   deploy:
     environment:
@@ -61,3 +67,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
+        with:
+          artifact_name: github-pages
+          timeout: 600000
