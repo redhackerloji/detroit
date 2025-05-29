@@ -18,8 +18,8 @@ const videos: Video[] = [
     id: 'trailer1',
     title: 'Detroit: Become Human - Launch Trailer',
     description: 'Enter the world of Detroit: Become Human, where your choices determine the fate of androids and humanity.',
-    thumbnailUrl: getAssetPath('/images/videos/trailer1-thumb.webp'),
-    videoUrl: getAssetPath('/videos/Trailer1.mp4'),
+    thumbnailUrl: getAssetPath('images/videos/trailer1-thumb.webp'),
+    videoUrl: getAssetPath('videos/Trailer1.mp4'),
     category: 'trailer'
   }
 ];
