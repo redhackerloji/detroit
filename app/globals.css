@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utility classes */
+@layer components {
+  .detroit-glow {
+    text-shadow: 0 0 8px #1E88E5, 0 0 12px rgba(30, 136, 229, 0.5);
+  }
+  
+  .detroit-container {
+    @apply bg-detroit-black text-detroit-white max-w-7xl mx-auto;
+  }
+
+  .android-terminal {
+    @apply font-mono text-sm leading-relaxed text-detroit-teal;
+  }
+
+  .interface-border {
+    @apply border border-detroit-blue/40 rounded-sm;
+  }
+
+  .interface-panel {
+    @apply bg-detroit-black/90 interface-border p-4;
+  }
+
+  .grid-bg-overlay {
+    background-image: linear-gradient(to right, rgba(30, 136, 229, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(30, 136, 229, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin 6s linear infinite reverse;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    /* Base variables */
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    
+    /* Detroit theme - forced dark mode */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 214 80% 56%;       /* Android blue */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 100% 66%;      /* Revolution red */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 167 100% 69%;       /* Cyberlife teal */
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    
+    /* Detroit specific colors for animations */
+    --detroit-blue: #1E88E5;
+    --detroit-blue-05: rgba(30, 136, 229, 0.05);
+    --detroit-blue-40: rgba(30, 136, 229, 0.4);
+    --detroit-red: #FF5252;
+    --detroit-teal: #64FFDA;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-detroit-blue/40;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
