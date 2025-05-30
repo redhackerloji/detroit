@@ -44,13 +44,10 @@ jobs:
         env:
           GITHUB_PAGES: true
 
-      - name: Static HTML export with Next.js
-        run: npm run export || npm run build
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: out
 
   deploy:
     environment:
