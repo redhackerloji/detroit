@@ -50,9 +50,20 @@ jobs:
         env:
           GITHUB_PAGES: true
 
+      - name: Prepare public files
+        run: |
+          # Ensure videos directory exists in output
+          mkdir -p out/videos
+          # Copy videos
+          cp -r public/videos/* out/videos/
+          # Create .nojekyll file
+          touch out/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: out
           branch: gh-pages
           clean: true
+          clean-exclude: |
+            .nojekyll
