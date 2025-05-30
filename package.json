@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "export": "next export"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
