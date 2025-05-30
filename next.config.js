@@ -2,12 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  output: 'export',  // Enable static exports
+  output: 'standalone',
   images: {
     unoptimized: true,
   },
-  basePath: process.env.GITHUB_PAGES ? '/detroit' : '', // Replace 'detroit' with your repo name
-  assetPrefix: process.env.GITHUB_PAGES ? '/detroit/' : '', // Replace 'detroit' with your repo name
+  basePath: process.env.GITHUB_PAGES ? '/detroit' : '',
+  assetPrefix: process.env.GITHUB_PAGES ? '/detroit/' : '',
   eslint: {
     ignoreDuringBuilds: true, // Temporarily ignore ESLint errors during build
   },
