@@ -46,10 +46,15 @@ jobs:
 
       - name: Prepare output directory
         run: |
-          mkdir -p out
+          # Create all necessary directories
+          mkdir -p out/_next/static
+          
+          # Copy files in the correct order
           cp -r public/* out/ || true
-          cp -r .next/static out/_next/static
+          cp -r .next/static/* out/_next/static/
           cp -r .next/standalone/* out/
+          
+          # Create .nojekyll file
           touch out/.nojekyll
 
       - name: Upload artifact
