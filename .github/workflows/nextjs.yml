@@ -44,12 +44,12 @@ jobs:
         env:
           GITHUB_PAGES: true
 
-      - name: Create output directory
+      - name: Prepare output directory
         run: |
           mkdir -p out
-          cp -r .next/standalone/* out/
-          cp -r .next/static out/_next/static
           cp -r public/* out/ || true
+          cp -r .next/static out/_next/static
+          cp -r .next/standalone/* out/
           touch out/.nojekyll
 
       - name: Upload artifact
