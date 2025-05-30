@@ -17,6 +17,7 @@ env:
   SOURCE_BRANCH: "main"
   # Directory containing your static files
   BUILD_DIR: "out"
+  ARTIFACT_NAME: github-pages
 
 # Allow only one concurrent deployment
 concurrency:
@@ -38,6 +39,9 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        id: pages
+        with:
+          enablement: true
 
       - name: Install dependencies
         run: npm ci
@@ -59,11 +63,18 @@ jobs:
           
           # Create .nojekyll file
           touch out/.nojekyll
+          
+          # Debug: List contents of directories
+          echo "Contents of out directory:"
+          ls -la out/
+          echo "Contents of out/_next/static directory:"
+          ls -la out/_next/static/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          name: ${{ env.ARTIFACT_NAME }}
+          path: out
 
   deploy:
     needs: build
@@ -81,3 +92,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
+        with:
+          artifact_name: ${{ env.ARTIFACT_NAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
