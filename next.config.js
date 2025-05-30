@@ -15,6 +15,7 @@ const nextConfig = {
     ignoreBuildErrors: true, // Temporarily ignore TypeScript errors during build
   },
   trailingSlash: true,
+  distDir: 'out',
 }
 
 module.exports = nextConfig
